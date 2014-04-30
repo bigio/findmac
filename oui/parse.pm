@@ -27,4 +27,18 @@ foreach my $value ( @lines ) {
 return @a_oui;
 }
 
+sub parse_mac() {
+my $mac = shift;
+my $macbrand;
+my @a_mac;
+
+@a_mac = split(/-/, $mac);
+if ( not @a_mac ) {
+	@a_mac = split(/:/, $mac);
+}
+$macbrand = $a_mac[0] . "-" . $a_mac[1] . "-" . $a_mac[2];
+$macbrand = uc $macbrand;
+return $macbrand;
+}
+
 1;
