@@ -10,13 +10,15 @@ use strict;
 use FindBin;
 use lib ("$FindBin::Bin");
 
+use Getopt::Std;
 use LWP::UserAgent;
 use DBI;
 
 use oui::parse;
 
 my $GRABURL = "http://standards.ieee.org/develop/regauth/oui/oui.txt";
-my $ouifile = shift;
+my $ouifile;
+my %opts = ();
 my $txt_ouifile;
 my $offline = 0;
 my @a_oui;
@@ -28,6 +30,16 @@ my $mac;
 my $brand;
 my $descr;
 my $tot_id;
+
+getopts('h', \%opts);
+if ( defined $opts{'h'} ) {
+	print "Usage: populatedb.pl [text file]\n";
+	exit;
+} else {
+	# The first parameter is the file to parse
+	# if not specified it will grab the data from the ieee site
+	$ouifile = shift;
+}
 
 if ( defined $ouifile ) {
 	print "Using $ouifile as input\n";
