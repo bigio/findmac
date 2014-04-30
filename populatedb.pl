@@ -49,10 +49,10 @@ if ( !$offline ) {
 	if ($res->is_success) {
 		$txt_ouifile = $res->content;
 	} else {
-		print $res->status_line, "\n";
+		die $res->status_line, "\n";
 	}
 } else {
-	open(my $fh, $ouifile) or warn "Can't open $ouifile: $!";
+	open(my $fh, $ouifile) or die "Can't open $ouifile: $!";
 
 	while ( ! eof($fh) ) {
 		defined( $_ = <$fh> )
