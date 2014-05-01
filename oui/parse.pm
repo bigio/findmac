@@ -33,7 +33,7 @@ my $macbrand;
 my @a_mac;
 
 @a_mac = split(/-/, $mac);
-if ( not @a_mac ) {
+if ( length($a_mac[0]) ne 2 ) {
 	@a_mac = split(/:/, $mac);
 }
 $macbrand = $a_mac[0] . "-" . $a_mac[1] . "-" . $a_mac[2];
