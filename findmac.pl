@@ -30,7 +30,7 @@ if ( ( defined $opts{'h'} ) || ( not defined $mac ) ) {
         exit;
 } else {
         # The first parameter is the file to parse
-        # if not specified it will grab the data from the ieee site
+        # if not specified it will use the default oui.sqlite database
         $db = shift;
 	if ( defined $db ) {
 		$tbdb = $db;
