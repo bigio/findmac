@@ -38,6 +38,9 @@ if ( ( defined $opts{'h'} ) || ( not defined $mac ) ) {
 }
 $macbrand = &oui::parse::parse_mac($mac);
 
+if ( ! -f $tbdb ) {
+	die("Database $tbdb not found.");
+}
 $conn = DBI->connect("DBI:SQLite:database=$tbdb",{RaiseError => 1});
 
 $query = $conn->prepare("SELECT id, brand, descr FROM oui WHERE mac = '$macbrand'");
