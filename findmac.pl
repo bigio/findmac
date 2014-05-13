@@ -24,13 +24,13 @@ my @row;
 my $descr;
 
 getopts('h', \%opts);
-if ( defined $opts{'h'} ) {
+$mac = shift;
+if ( ( defined $opts{'h'} ) || ( not defined $mac ) ) {
         print "Usage: findmac.pl macaddress [database file]\n";
         exit;
 } else {
         # The first parameter is the file to parse
         # if not specified it will grab the data from the ieee site
-	$mac = shift;
         $db = shift;
 	if ( defined $db ) {
 		$tbdb = $db;
