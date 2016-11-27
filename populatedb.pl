@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
 #------------------------------------------------------------------------------
 # Copyright (c) 2014,2016, Giovanni Bechis
@@ -30,6 +30,7 @@
 $| = 1;
 
 use strict;
+use warnings;
 
 use FindBin;
 use lib ("$FindBin::Bin");
