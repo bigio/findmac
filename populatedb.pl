@@ -75,6 +75,7 @@ if ( !$offline ) {
 	# Create a user agent object
 	my $ua = LWP::UserAgent->new;
 	$ua->agent("findmac/0.1");
+	$ua->show_progress(1);
 
 	# Create a request
 	my $req = HTTP::Request->new(GET => $GRABURL);
