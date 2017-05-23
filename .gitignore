@@ -18,3 +18,4 @@ nytprof.out
 *.o
 *.bs
 oui.txt
+oui.sqlite
