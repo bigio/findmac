@@ -41,7 +41,7 @@ use DBI;
 
 use oui::parse;
 
-my $GRABURL = "http://standards.ieee.org/develop/regauth/oui/oui.txt";
+my $GRABURL = "http://standards-oui.ieee.org/oui/oui.txt";
 my $ouifile;
 my %opts = ();
 my $txt_ouifile;
