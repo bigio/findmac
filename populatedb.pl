@@ -26,9 +26,6 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #------------------------------------------------------------------------------
 
-# autoflush buffer
-$| = 1;
-
 use strict;
 use warnings;
 
@@ -40,6 +37,9 @@ use LWP::UserAgent;
 use DBI;
 
 use oui::parse;
+
+# autoflush buffer
+$| = 1;
 
 my $GRABURL = "http://standards-oui.ieee.org/oui/oui.txt";
 my $ouifile;
@@ -90,7 +90,7 @@ if ( !$offline ) {
 		die $res->status_line, "\n";
 	}
 } else {
-	open(my $fh, $ouifile) or die "Can't open $ouifile: $!";
+	open(my $fh, "<", $ouifile) or die "Can't open $ouifile: $!";
 
 	while ( ! eof($fh) ) {
 		defined( $_ = <$fh> )
